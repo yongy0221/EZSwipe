@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "174373156506",
+    "firebase_url": "https://ezswipe-1db4e.firebaseio.com",
+    "project_id": "ezswipe-1db4e",
+    "storage_bucket": "ezswipe-1db4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174373156506:android:5ab5914931d42ca1",
+        "android_client_info": {
+          "package_name": "com.gazua.ezswipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174373156506-75fff23cdfn3phip6af97bgh7tleakcm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gazua.ezswipe",
+            "certificate_hash": "294bcc4d5612109be80b2905bab15f715a70a1d1"
+          }
+        },
+        {
+          "client_id": "174373156506-rpjtbmlo5o62vtjq7vv3n9fd9ir04vr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj4s7yxKIO0X4iYiCWif47W8M-lS1QXa8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174373156506-rpjtbmlo5o62vtjq7vv3n9fd9ir04vr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
