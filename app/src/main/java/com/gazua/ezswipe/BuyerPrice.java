@@ -41,7 +41,7 @@ public class BuyerPrice extends AppCompatActivity {
         mFirebaseBtn = (Button) findViewById(R.id.buyer_btn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-      
+
       findViewById(R.id.buyerTimeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
@@ -87,6 +87,7 @@ public class BuyerPrice extends AppCompatActivity {
 //                String st = reference.toString();
 //                Toast.makeText(BuyerPrice.this, st, Toast.LENGTH_LONG).show();
 
+<<<<<<< HEAD
 //                mDatabase.child("Location").setValue("Covel");
 //                mDatabase.child("Price").setValue("8");
 //                mDatabase.child("Number").setValue("1");
@@ -101,5 +102,17 @@ public class BuyerPrice extends AppCompatActivity {
 
     public static DatabaseReference push_reference() {
         return reference;
+=======
+                mDatabase.child("Location").setValue("Covel");
+                mDatabase.child("Price").setValue("8");
+                mDatabase.child("Number").setValue("1");
+                mDatabase.child("Status").setValue("0");
+                mDatabase.child("Buyer_ID").setValue("1");
+                mDatabase.child("Buyer_name").setValue("Bruin");
+                mDatabase.child("Seller_name").setValue("Bear");
+                mDatabase.child("Created_at").setValue("10");
+            }
+        });
+>>>>>>> 4d81f7b46143070f1e9c18cfee73386d4aa5c608
     }
 }
