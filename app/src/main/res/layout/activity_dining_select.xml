@@ -33,28 +33,28 @@
             tools:layout_editor_absoluteY="69dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/bplate_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Bruin Plate" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/covel_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Covel" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/deNeve_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="De Neve" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/feast_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Feast" />
 
         <Button
             android:id="@+id/signOutButton"
