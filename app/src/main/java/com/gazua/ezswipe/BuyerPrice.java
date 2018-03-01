@@ -43,14 +43,13 @@ public class BuyerPrice extends AppCompatActivity {
 
                 numPerson = numberInput.getText().toString();
                 price = priceInput.getText().toString();
-
+                mDatabase = FirebaseDatabase.getInstance().getReference();
                 DiningSelect.push_reference().child("Price").setValue(price);
                 DiningSelect.push_reference().child("Number").setValue(numPerson);
 
                 startActivity(new Intent(BuyerPrice.this, BuyerWait.class));
             }
         });
-
 
         Toast.makeText(BuyerPrice.this, DiningSelect.push_reference().toString(), Toast.LENGTH_LONG).show();
     }

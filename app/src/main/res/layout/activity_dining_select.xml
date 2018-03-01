@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.gazua.ezswipe.DiningSelect">
 
-   <android.support.v7.widget.Toolbar
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="fill_parent"
         android:layout_height="57dp"
@@ -20,54 +20,103 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="44dp"
+        android:layout_marginTop="60dp"
+        tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <Button
-            android:id="@+id/bplate_btn"
+        <TextView
+            android:id="@+id/status"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bruin Plate" />
+            android:layout_height="wrap_content" />
 
-        <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="100dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                 android:id="@+id/bplate_btn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:onClick="bpClicked"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/bplate" />
+
+            <ImageButton
+                android:id="@+id/deNeve_btn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:onClick="dnClicked"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/deneve" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
+
+            <ImageButton
             android:id="@+id/covel_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Covel" />
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:onClick="cvClicked"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/covel" />
 
-        <Button
-            android:id="@+id/deNeve_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="De Neve" />
+            <ImageButton
+                android:id="@+id/feast_btn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:onClick="ftClicked"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/feast" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/feast_btn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Feast" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                 android:id="@+id/buyer_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Buy"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                 android:id="@+id/seller_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sell"
+                style="?android:attr/borderlessButtonStyle"/>
+
 
         <Button
             android:id="@+id/signOutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Sign Out"
-            tools:layout_editor_absoluteX="147dp"
-            tools:layout_editor_absoluteY="163dp" />
+            android:text="Sign Out" />
 
-        <Button
-            android:id="@+id/buyer_btn"
-            android:layout_width="189dp"
-            android:layout_height="wrap_content"
-            android:text="Buyer" />
-
-        <Button
-            android:id="@+id/seller_btn"
-            android:layout_width="186dp"
-            android:layout_height="wrap_content"
-            android:text="Seller" />
+        </LinearLayout>
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
