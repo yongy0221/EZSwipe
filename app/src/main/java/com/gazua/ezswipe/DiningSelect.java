@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ProfileActivity extends AppCompatActivity {
+public class DiningSelect extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_dining_select);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -22,6 +23,8 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick (View view) {
                 mAuth.signOut();
+                startActivity(new Intent(DiningSelect.this, MainActivity.class));
+                Toast.makeText(DiningSelect.this, "Sign Out.", Toast.LENGTH_LONG).show();
             }
         });
     }
