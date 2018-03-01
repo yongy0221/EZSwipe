@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent (this, ProfileActivity.class));
+            startActivity(new Intent (this, DiningSelect.class));
         }
     }
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
+                            startActivity(new Intent (MainActivity.this, DiningSelect.class));
                             Toast.makeText(MainActivity.this, "User Signed In", Toast.LENGTH_SHORT).show();
 
                         } else {
