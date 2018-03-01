@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 234;
     private static final String TAG = "Log String";
 
-//    for database test
-    private Button button;
+
 
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth mAuth;

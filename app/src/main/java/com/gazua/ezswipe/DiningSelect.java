@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +33,11 @@ public class DiningSelect extends AppCompatActivity {
     private Button covel;
     private Button feast;
     private DatabaseReference mDatabase;
-    private String diningHall;
+    private static String diningHall;
+    private Button mSellerBtn;
+
+    //    for list test
+    private Button list_btn;
 
     FirebaseAuth mAuth;
 
@@ -44,7 +50,7 @@ public class DiningSelect extends AppCompatActivity {
 
         findViewById(R.id.signOutButton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View view) {
+            public void onClick(View view) {
                 mAuth.signOut();
                 startActivity(new Intent(DiningSelect.this, MainActivity.class));
                 Toast.makeText(DiningSelect.this, "Sign Out.", Toast.LENGTH_LONG).show();
@@ -52,6 +58,7 @@ public class DiningSelect extends AppCompatActivity {
         });
 
         mFirebaseBtn = (Button) findViewById(R.id.buyer_btn);
+        mSellerBtn = (Button) findViewById(R.id.seller_btn);
         bplate = (Button) findViewById(R.id.bplate_btn);
         covel = (Button) findViewById(R.id.covel_btn);
         deNeve = (Button) findViewById(R.id.deNeve_btn);
@@ -59,13 +66,16 @@ public class DiningSelect extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+
         mFirebaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-                String name = currentFirebaseUser.getDisplayName();
-                String uid = currentFirebaseUser.getUid();
-                Date currentTime = Calendar.getInstance().getTime();
+                final String name = currentFirebaseUser.getDisplayName();
+                final String uid = currentFirebaseUser.getUid();
+                final Date currentTime = Calendar.getInstance().getTime();
+//                Boolean switchState = simpleSwitch.isChecked();
+//                Toast.makeText(DiningSelect.this, switchState.toString(), Toast.LENGTH_LONG).show();
 
                 SimpleDateFormat simpleDate = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
@@ -81,26 +91,23 @@ public class DiningSelect extends AppCompatActivity {
                 map.put("Seller_name", "");
                 map.put("Created_at", strDt);
 
-//                mDatabase.push().setValue(map);
                 reference = mDatabase.push();
                 reference.setValue(map);
-//                reference.child("Seller_name").setValue("David");
-//
-//                String st = reference.toString();
-//                Toast.makeText(BuyerPrice.this, st, Toast.LENGTH_LONG).show();
 
-//                mDatabase.child("Location").setValue("Covel");
-//                mDatabase.child("Price").setValue("8");
-//                mDatabase.child("Number").setValue("1");
-//                mDatabase.child("Status").setValue("0");
-//                mDatabase.child("Buyer_ID").setValue("1");
-//                mDatabase.child("Buyer_name").setValue("Bruin");
-//                mDatabase.child("Seller_name").setValue("Bear");
-//                mDatabase.child("Created_at").setValue("10");
                 startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
                 Toast.makeText(DiningSelect.this, "Buyer Price.", Toast.LENGTH_LONG).show();
             }
         });
+
+        mSellerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DiningSelect.this, SellerList.class));
+                Toast.makeText(DiningSelect.this, "Seller List", Toast.LENGTH_LONG).show();
+            }
+
+        });
+
 
         bplate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,22 +137,26 @@ public class DiningSelect extends AppCompatActivity {
             }
         });
 
-
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+        @Override
+        protected void onStart () {
+            super.onStart();
 
-        if (mAuth.getCurrentUser() == null) {
-            finish();
-            startActivity(new Intent(this, MainActivity.class));
-        }
+            if (mAuth.getCurrentUser() == null) {
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
+            }
 
 //        ref.child("Test").setValue("Test!!");
-    }
+        }
+
 
     public static DatabaseReference push_reference() {
         return reference;
+    }
+
+    public static String dining_hall() {
+        return diningHall;
     }
 }
