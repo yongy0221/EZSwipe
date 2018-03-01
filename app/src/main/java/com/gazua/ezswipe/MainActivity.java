@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 234;
     private static final String TAG = "Log String";
+
+//    for database test
+    private Button button;
 
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth mAuth;
@@ -48,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick (View view) {
                 signIn();
+            }
+        });
+
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDatabaseActivity();
             }
         });
     }
@@ -110,5 +122,11 @@ public class MainActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+//    for databse!
+    public void openDatabaseActivity() {
+        Intent intent = new Intent(this, DatabaseActivity.class);
+        startActivity(intent);
     }
 }
