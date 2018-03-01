@@ -25,8 +25,44 @@ public class SellerList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_list);
 
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(DiningSelect.dining_hall());
+        final TextView textView = (TextView) findViewById(R.id.textView);
+
+
+        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+
+                for (DataSnapshot child: children) {
+                    String dining_str = (String) child.child("Location").getValue();
+                    if(Objects.equals(dining_str, DiningSelect.dining_hall())) {
+                        Map<String, String> map = new HashMap<String, String>();
+                        map.put("Buyer_ID", (String) child.child("Buyer_ID").getValue());
+                        map.put("Buyer_name", (String) child.child("Buyer_name").getValue());
+                        map.put("Created_at", (String) child.child("Created_at").getValue());
+                        map.put("Location", (String) child.child("Location").getValue());
+                        map.put("Number", (String) child.child("Number").getValue());
+                        map.put("Price", (String) child.child("Price").getValue());
+                        map.put("Seller_name", (String) child.child("Seller_name").getValue());
+                        map.put("Status", (String) child.child("Status").getValue());
+
+                        list.add(map);
+                    }
+                }
+
+                textView.setText(list.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
 
