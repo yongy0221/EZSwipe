@@ -26,7 +26,12 @@ public class DiningSelect extends AppCompatActivity {
     private TextView MessageText;
     private static DatabaseReference reference;
     private Button mFirebaseBtn;
+    private Button deNeve;
+    private Button bplate;
+    private Button covel;
+    private Button feast;
     private DatabaseReference mDatabase;
+    private String diningHall;
 
     FirebaseAuth mAuth;
 
@@ -47,6 +52,10 @@ public class DiningSelect extends AppCompatActivity {
         });
 
         mFirebaseBtn = (Button) findViewById(R.id.buyer_btn);
+        bplate = (Button) findViewById(R.id.bplate_btn);
+        covel = (Button) findViewById(R.id.covel_btn);
+        deNeve = (Button) findViewById(R.id.deNeve_btn);
+        feast = (Button) findViewById(R.id.feast_btn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -58,15 +67,15 @@ public class DiningSelect extends AppCompatActivity {
                 String uid = currentFirebaseUser.getUid();
                 Date currentTime = Calendar.getInstance().getTime();
 
-                SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                SimpleDateFormat simpleDate = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
                 String strDt = simpleDate.format(currentTime);
 
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("Location", "Covel");
+                map.put("Location", diningHall);
                 map.put("Price", "");
                 map.put("Number", "");
-                map.put("Status", "");
+                map.put("Status", "0");
                 map.put("Buyer_ID", uid);
                 map.put("Buyer_name", name);
                 map.put("Seller_name", "");
@@ -92,6 +101,36 @@ public class DiningSelect extends AppCompatActivity {
                 Toast.makeText(DiningSelect.this, "Buyer Price.", Toast.LENGTH_LONG).show();
             }
         });
+
+        bplate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diningHall = "Bruin Plate";
+            }
+        });
+
+        covel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diningHall = "Covel";
+            }
+        });
+
+        deNeve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diningHall = "De Neve";
+            }
+        });
+
+        feast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diningHall = "Feast";
+            }
+        });
+
+
     }
 
     @Override
