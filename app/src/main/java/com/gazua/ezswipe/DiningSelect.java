@@ -4,12 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 public class DiningSelect extends AppCompatActivity {
 
@@ -17,6 +24,9 @@ public class DiningSelect extends AppCompatActivity {
 //    DatabaseReference ref = database.getReference("https://ezswipe-1db4e.firebaseio.com/");
 
     private TextView MessageText;
+    private static DatabaseReference reference;
+    private Button mFirebaseBtn;
+    private DatabaseReference mDatabase;
 
     FirebaseAuth mAuth;
 
@@ -36,10 +46,52 @@ public class DiningSelect extends AppCompatActivity {
             }
         });
 
-//        MessageText = (TextView)findViewById(R.id.msgText);
+        mFirebaseBtn = (Button) findViewById(R.id.buyer_btn);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        mFirebaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                String name = currentFirebaseUser.getDisplayName();
+                String uid = currentFirebaseUser.getUid();
+                Date currentTime = Calendar.getInstance().getTime();
 
+                SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+                String strDt = simpleDate.format(currentTime);
+
+                HashMap<String, String> map = new HashMap<String, String>();
+                map.put("Location", "Covel");
+                map.put("Price", "");
+                map.put("Number", "");
+                map.put("Status", "");
+                map.put("Buyer_ID", uid);
+                map.put("Buyer_name", name);
+                map.put("Seller_name", "");
+                map.put("Created_at", strDt);
+
+//                mDatabase.push().setValue(map);
+                reference = mDatabase.push();
+                reference.setValue(map);
+//                reference.child("Seller_name").setValue("David");
+//
+//                String st = reference.toString();
+//                Toast.makeText(BuyerPrice.this, st, Toast.LENGTH_LONG).show();
+
+//                mDatabase.child("Location").setValue("Covel");
+//                mDatabase.child("Price").setValue("8");
+//                mDatabase.child("Number").setValue("1");
+//                mDatabase.child("Status").setValue("0");
+//                mDatabase.child("Buyer_ID").setValue("1");
+//                mDatabase.child("Buyer_name").setValue("Bruin");
+//                mDatabase.child("Seller_name").setValue("Bear");
+//                mDatabase.child("Created_at").setValue("10");
+                startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
+                Toast.makeText(DiningSelect.this, "Buyer Price.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -52,5 +104,9 @@ public class DiningSelect extends AppCompatActivity {
         }
 
 //        ref.child("Test").setValue("Test!!");
+    }
+
+    public static DatabaseReference push_reference() {
+        return reference;
     }
 }
