@@ -13,6 +13,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DiningSelect extends AppCompatActivity {
 
+//    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference ref = database.getReference("https://ezswipe-1db4e.firebaseio.com/");
+
     private TextView MessageText;
 
     FirebaseAuth mAuth;
@@ -49,7 +52,7 @@ public class DiningSelect extends AppCompatActivity {
             }
         });
 
-        MessageText = (TextView)findViewById(R.id.msgText);
+//        MessageText = (TextView)findViewById(R.id.msgText);
 
 
 
@@ -63,5 +66,7 @@ public class DiningSelect extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
+
+//        ref.child("Test").setValue("Test!!");
     }
 }
