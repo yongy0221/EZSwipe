@@ -33,6 +33,9 @@ public class DiningSelect extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private String diningHall;
 
+    //    for list test
+    private Button list_btn;
+
     FirebaseAuth mAuth;
 
     @Override
@@ -129,6 +132,7 @@ public class DiningSelect extends AppCompatActivity {
                 diningHall = "Feast";
             }
         });
+
 
 
     }

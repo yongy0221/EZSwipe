@@ -71,6 +71,12 @@
             android:layout_height="wrap_content"
             android:text="Submit" />
 
+        <Button
+            android:id="@+id/seller_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seller" />
+
     </LinearLayout>
 
     <Switch
