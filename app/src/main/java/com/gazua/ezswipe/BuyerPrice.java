@@ -24,6 +24,7 @@ public class BuyerPrice extends AppCompatActivity {
 
     private Button mFirebaseBtn;
     private DatabaseReference mDatabase;
+    private static DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +54,17 @@ public class BuyerPrice extends AppCompatActivity {
         mFirebaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 String name = currentFirebaseUser.getDisplayName();
                 String uid = currentFirebaseUser.getUid();
                 Date currentTime = Calendar.getInstance().getTime();
 
                 String key = mDatabase.getKey();
 
-                DatabaseReference reference;
 
 
-                SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+                SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
                 String strDt = simpleDate.format(currentTime);
 
@@ -78,20 +79,27 @@ public class BuyerPrice extends AppCompatActivity {
                 map.put("Created_at", strDt);
                 map.put("Key", key);
 
-                mDatabase.push().setValue(map);
-//                reference = mDatabase.push();
-//                reference.setValue(map);
+//                mDatabase.push().setValue(map);
+                reference = mDatabase.push();
+                reference.setValue(map);
+                reference.child("Seller_name").setValue("David");
 //
 //                String st = reference.toString();
 //                Toast.makeText(BuyerPrice.this, st, Toast.LENGTH_LONG).show();
 
-                mDatabase.child("Location").setValue("Covel");
-                mDatabase.child("Price").setValue("8");
-                mDatabase.child("Number").setValue("1");
-                mDatabase.child("Status").setValue("0");
-                mDatabase.child("Buyer_ID").setValue("1");
-                mDatabase.child("Buyer_name").setValue("Bruin");
-                mDatabase.child("Seller_name").setValue("Bear");
-                mDatabase.child("Created_at").setValue("10");
+//                mDatabase.child("Location").setValue("Covel");
+//                mDatabase.child("Price").setValue("8");
+//                mDatabase.child("Number").setValue("1");
+//                mDatabase.child("Status").setValue("0");
+//                mDatabase.child("Buyer_ID").setValue("1");
+//                mDatabase.child("Buyer_name").setValue("Bruin");
+//                mDatabase.child("Seller_name").setValue("Bear");
+//                mDatabase.child("Created_at").setValue("10");
+            }
+        });
+    }
+
+    public static DatabaseReference push_reference() {
+        return reference;
     }
 }

@@ -49,7 +49,7 @@ public class DiningSelect extends AppCompatActivity {
             }
         });
 
-        MessageText = (TextView)findViewById(R.id.msgText);
+        //MessageText = (TextView)findViewById(R.id.msgText);
 
 
 
