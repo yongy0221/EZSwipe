@@ -33,21 +33,21 @@ public class DiningSelect extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.sellerButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                startActivity(new Intent(DiningSelect.this, SellerList.class));
-                Toast.makeText(DiningSelect.this, "Seller Page", Toast.LENGTH_LONG).show();
-            }
-        });
+//        findViewById(R.id.sellerButton).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick (View view) {
+//                startActivity(new Intent(DiningSelect.this, SellerList.class));
+//                Toast.makeText(DiningSelect.this, "Seller Page", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
-        findViewById(R.id.buyerButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
-                Toast.makeText(DiningSelect.this, "Buyer Price", Toast.LENGTH_LONG).show();
-            }
-        });
+//        findViewById(R.id.buyerButton).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick (View view) {
+//                startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
+//                Toast.makeText(DiningSelect.this, "Buyer Price", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         //MessageText = (TextView)findViewById(R.id.msgText);
 
