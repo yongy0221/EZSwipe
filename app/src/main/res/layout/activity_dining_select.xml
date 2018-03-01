@@ -61,9 +61,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Confirm"
+            android:text="Sign Out"
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="163dp" />
+
+        <Button
+            android:id="@+id/buyer_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
 
     </LinearLayout>
 
