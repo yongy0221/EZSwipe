@@ -10,6 +10,6 @@ public class BuyerWait extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_wait);
-        Toast.makeText(BuyerWait.this, BuyerPrice.push_reference().toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(BuyerWait.this, DiningSelect.push_reference().toString(), Toast.LENGTH_LONG).show();
     }
 }
