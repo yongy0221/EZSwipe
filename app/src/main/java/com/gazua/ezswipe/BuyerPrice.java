@@ -1,5 +1,6 @@
 package com.gazua.ezswipe;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class BuyerPrice extends AppCompatActivity {
 
@@ -38,6 +40,15 @@ public class BuyerPrice extends AppCompatActivity {
         mFirebaseBtn = (Button) findViewById(R.id.buyer_btn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
+      
+      findViewById(R.id.buyerTimeButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                startActivity(new Intent(BuyerPrice.this, BuyerTime.class));
+                Toast.makeText(BuyerPrice.this, "Buyer Time.", Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         mFirebaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +93,5 @@ public class BuyerPrice extends AppCompatActivity {
                 mDatabase.child("Buyer_name").setValue("Bruin");
                 mDatabase.child("Seller_name").setValue("Bear");
                 mDatabase.child("Created_at").setValue("10");
-            }
-        });
     }
 }
