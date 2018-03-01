@@ -36,6 +36,9 @@ public class DiningSelect extends AppCompatActivity {
     private static String diningHall;
     private Button mSellerBtn;
 
+    //    for list test
+    private Button list_btn;
+
     FirebaseAuth mAuth;
 
     @Override
