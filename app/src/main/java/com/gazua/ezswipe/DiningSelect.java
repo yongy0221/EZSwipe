@@ -13,6 +13,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DiningSelect extends AppCompatActivity {
 
+//    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference ref = database.getReference("https://ezswipe-1db4e.firebaseio.com/");
+
     private TextView MessageText;
 
     FirebaseAuth mAuth;
@@ -33,23 +36,7 @@ public class DiningSelect extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.sellerButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                startActivity(new Intent(DiningSelect.this, SellerList.class));
-                Toast.makeText(DiningSelect.this, "Seller Page", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        findViewById(R.id.buyerButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
-                Toast.makeText(DiningSelect.this, "Buyer Price", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        MessageText = (TextView)findViewById(R.id.msgText);
+//        MessageText = (TextView)findViewById(R.id.msgText);
 
 
 
@@ -63,5 +50,7 @@ public class DiningSelect extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
+
+//        ref.child("Test").setValue("Test!!");
     }
 }
