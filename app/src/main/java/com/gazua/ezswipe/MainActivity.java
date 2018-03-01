@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 234;
     private static final String TAG = "Log String";
+
+
 
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth mAuth;
@@ -50,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
                 signIn();
             }
         });
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String name = user.getDisplayName();
+            String uid = user.getUid();
+            Toast.makeText(MainActivity.this, name + "   " + uid, Toast.LENGTH_LONG).show();
+
+
+        }
+
+
     }
 
     @Override
@@ -58,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent (this, ProfileActivity.class));
+            startActivity(new Intent (this, DiningSelect.class));
         }
     }
 
@@ -91,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
+                            //  for putting rows into the DB
+                            startActivity(new Intent (MainActivity.this, BuyerPrice.class));
                             Toast.makeText(MainActivity.this, "User Signed In", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -110,5 +126,11 @@ public class MainActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+//    for databse!
+    public void openDatabaseActivity() {
+        Intent intent = new Intent(this, DatabaseActivity.class);
+        startActivity(intent);
     }
 }

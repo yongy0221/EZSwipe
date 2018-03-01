@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gazua.ezswipe.DiningSelect">
+
+   <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="fill_parent"
+        android:layout_height="57dp"
+        android:background="#070523"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/bplate_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bruin Plate" />
+
+        <Button
+            android:id="@+id/covel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Covel" />
+
+        <Button
+            android:id="@+id/deNeve_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="De Neve" />
+
+        <Button
+            android:id="@+id/feast_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feast" />
+
+        <Button
+            android:id="@+id/signOutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Sign Out"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="163dp" />
+
+        <Button
+            android:id="@+id/buyer_btn"
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:text="Buyer" />
+
+        <Button
+            android:id="@+id/seller_btn"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:text="Seller" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
