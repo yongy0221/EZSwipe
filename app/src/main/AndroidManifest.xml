@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--<activity android:name=".ProfileActivity" />-->
+        <activity android:name=".DatabaseActivity"></activity>
         <activity android:name=".DiningSelect" />
         <activity android:name=".BuyerPrice" />
         <activity android:name=".BuyerWait" />
