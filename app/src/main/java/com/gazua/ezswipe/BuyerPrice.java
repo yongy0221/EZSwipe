@@ -53,7 +53,7 @@ public class BuyerPrice extends AppCompatActivity {
         mFirebaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 String name = currentFirebaseUser.getDisplayName();
                 String uid = currentFirebaseUser.getUid();
                 Date currentTime = Calendar.getInstance().getTime();
@@ -63,7 +63,7 @@ public class BuyerPrice extends AppCompatActivity {
                 DatabaseReference reference;
 
 
-                SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
                 String strDt = simpleDate.format(currentTime);
 
@@ -93,5 +93,7 @@ public class BuyerPrice extends AppCompatActivity {
                 mDatabase.child("Buyer_name").setValue("Bruin");
                 mDatabase.child("Seller_name").setValue("Bear");
                 mDatabase.child("Created_at").setValue("10");
+            }
+        });
     }
 }
