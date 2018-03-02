@@ -1,5 +1,8 @@
 package com.gazua.ezswipe;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -41,7 +44,37 @@ public class SellerList extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SellerList.this);
 
+                // set title
+                builder.setTitle("Joe Bruin");      // 여기다가 제목 써주세요!!
+                // set message
+                builder.setMessage("De Neve, $5, 5 people");  // 여기다가 이름/가격/인원수
+                // set icon
+                builder.setIcon(R.drawable.ic_launcher_background);
+                // set cancelable
+                builder.setCancelable(true); // by default it is cancelable
+                // set positive/Yes button
+                builder.setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // 여기다가 status 0 --> 1 바꿔주는거 해주세요!!
+                        startActivity(new Intent(SellerList.this, Sdealdone.class));
+                    }
+                });
+                // set negative/No button
+                builder.setNegativeButton("Decline", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // close alert dialog when button is clicked
+                        dialogInterface.cancel();
+                    }
+                });
+
+                // create alert dialog
+                AlertDialog alertDialog = builder.create();
+                // show alert dialog
+                alertDialog.show();
             }
         });
 
