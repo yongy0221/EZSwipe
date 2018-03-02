@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SellerList extends AppCompatActivity {
 
@@ -25,7 +26,6 @@ public class SellerList extends AppCompatActivity {
         setContentView(R.layout.activity_seller_list);
 
         final TextView textView = (TextView) findViewById(R.id.textView);
-
 
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
@@ -40,7 +40,7 @@ public class SellerList extends AppCompatActivity {
                     String dining_str = (String) child.child("Location").getValue();
                     if(Objects.equals(dining_str, DiningSelect.dining_hall())) {
                         Map<String, String> map = new HashMap<String, String>();
-                        map.put("Buyer_ID", (String) child.child("Buyer_ID").getValue());
+                        map.put("RID", (String) child.child("RID").getValue());
                         map.put("Buyer_name", (String) child.child("Buyer_name").getValue());
                         map.put("Created_at", (String) child.child("Created_at").getValue());
                         map.put("Location", (String) child.child("Location").getValue());
@@ -48,6 +48,7 @@ public class SellerList extends AppCompatActivity {
                         map.put("Price", (String) child.child("Price").getValue());
                         map.put("Seller_name", (String) child.child("Seller_name").getValue());
                         map.put("Status", (String) child.child("Status").getValue());
+                        map.put("Buyer_ID", (String) child.child("Buyer_ID").getValue());
 
                         list.add(map);
                     }
@@ -58,7 +59,7 @@ public class SellerList extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(SellerList.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
 

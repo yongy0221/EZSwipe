@@ -76,11 +76,8 @@ public class DiningSelect extends AppCompatActivity {
                 final Date currentTime = Calendar.getInstance().getTime();
 //                Boolean switchState = simpleSwitch.isChecked();
 //                Toast.makeText(DiningSelect.this, switchState.toString(), Toast.LENGTH_LONG).show();
-
                 SimpleDateFormat simpleDate = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-
                 String strDt = simpleDate.format(currentTime);
-
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("Location", diningHall);
                 map.put("Price", "");
@@ -90,10 +87,10 @@ public class DiningSelect extends AppCompatActivity {
                 map.put("Buyer_name", name);
                 map.put("Seller_name", "");
                 map.put("Created_at", strDt);
-
+                map.put("RID", "");
                 reference = mDatabase.push();
                 reference.setValue(map);
-
+                reference.child("RID").setValue(push_reference().toString());
                 startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
                 Toast.makeText(DiningSelect.this, "Buyer Price.", Toast.LENGTH_LONG).show();
             }
