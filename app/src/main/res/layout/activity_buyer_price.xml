@@ -32,10 +32,12 @@
                 android:layout_height="match_parent"
                 android:text="Number of People" />
 
-            <Spinner
-                android:id="@+id/spinner_num"
-                android:layout_width="197dp"
-                android:layout_height="match_parent" />
+            <EditText
+                android:id="@+id/numberofpeople"
+                android:layout_width="213dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout

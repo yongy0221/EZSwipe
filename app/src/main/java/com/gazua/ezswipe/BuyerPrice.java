@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class BuyerPrice extends AppCompatActivity {
 
     EditText priceInput;
-    Spinner numberInput;
+    EditText numberInput;
 
     String numPerson;
     String price;
@@ -41,9 +41,9 @@ public class BuyerPrice extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 priceInput = (EditText) findViewById(R.id.price);
-                numberInput = (Spinner) findViewById(R.id.spinner_num);
+                numberInput = (EditText) findViewById(R.id.numberofpeople);
 
-//                numPerson = numberInput.get().toString();
+               numPerson = numberInput.getText().toString();
                 price = priceInput.getText().toString();
                 mDatabase = FirebaseDatabase.getInstance().getReference();
                 DiningSelect.push_reference().child("Price").setValue(price);
