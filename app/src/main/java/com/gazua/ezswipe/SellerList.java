@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class SellerList extends AppCompatActivity {
         final TextView textView = (TextView) findViewById(R.id.textView);
 
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+//        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference();
@@ -41,6 +44,7 @@ public class SellerList extends AppCompatActivity {
                     if(Objects.equals(dining_str, DiningSelect.dining_hall())) {
                         Map<String, String> map = new HashMap<String, String>();
                         map.put("RID", (String) child.child("RID").getValue());
+                        map.put("Buyer_ID", (String) child.child("Buyer_ID").getValue());
                         map.put("Buyer_name", (String) child.child("Buyer_name").getValue());
                         map.put("Created_at", (String) child.child("Created_at").getValue());
                         map.put("Location", (String) child.child("Location").getValue());

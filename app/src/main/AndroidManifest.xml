@@ -34,7 +34,6 @@
         <activity android:name=".DatabaseActivity"></activity>
         <activity android:name=".DiningSelect" />
         <activity android:name=".BuyerPrice" />
-        <activity android:name=".BuyerTime" />
         <activity android:name=".BuyerWait" />
         <activity android:name=".SellerList"></activity>
     </application>
