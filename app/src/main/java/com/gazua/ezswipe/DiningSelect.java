@@ -110,6 +110,8 @@ public class DiningSelect extends AppCompatActivity {
         bplate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView textView = findViewById(R.id.status);
+                textView.setText("@Bplate");
                 diningHall = "Bruin Plate";
             }
         });
@@ -117,6 +119,9 @@ public class DiningSelect extends AppCompatActivity {
         covel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TextView textView = findViewById(R.id.status);
+                textView.setText("@Covel");
                 diningHall = "Covel";
             }
         });
@@ -124,6 +129,8 @@ public class DiningSelect extends AppCompatActivity {
         deNeve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView textView = findViewById(R.id.status);
+                textView.setText("@DeNeve");
                 diningHall = "De Neve";
             }
         });
@@ -131,6 +138,8 @@ public class DiningSelect extends AppCompatActivity {
         feast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView textView = findViewById(R.id.status);
+                textView.setText("@Feast");
                 diningHall = "Feast";
             }
         });
