@@ -6,18 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.gazua.ezswipe.SellerList">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dining Hall"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="118dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Dining Hall"-->
+        <!--tools:layout_editor_absoluteX="163dp"-->
+        <!--tools:layout_editor_absoluteY="118dp" />-->
 
-    <!--<ListView-->
-        <!--android:id="@+id/list_view"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="1100px"-->
-        <!--tools:layout_editor_absoluteX="0dp"-->
-        <!--tools:layout_editor_absoluteY="16dp"></ListView>-->
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="0dp"
+        android:layout_height="1100px"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp"></ListView>
 </android.support.constraint.ConstraintLayout>
