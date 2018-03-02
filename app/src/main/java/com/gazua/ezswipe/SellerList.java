@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -36,6 +38,13 @@ public class SellerList extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, li);
         listview.setAdapter(adapter);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference();
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -47,7 +56,7 @@ public class SellerList extends AppCompatActivity {
                     String dining_str = (String) child.child("Location").getValue();
                     if(Objects.equals(dining_str, DiningSelect.dining_hall())) {
                         Map<String, String> map = new HashMap<String, String>();
-//                        map.put("RID", (String) child.child("RID").getValue());
+                        map.put("RID", (String) child.child("RID").getValue());
 //                        map.put("Buyer_ID", (String) child.child("Buyer_ID").getValue());
                         map.put("Buyer_name", (String) child.child("Buyer_name").getValue());
 //                        map.put("Created_at", (String) child.child("Created_at").getValue());
