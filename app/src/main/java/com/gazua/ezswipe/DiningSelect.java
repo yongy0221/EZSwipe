@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,10 +29,10 @@ public class DiningSelect extends AppCompatActivity {
     private TextView MessageText;
     private static DatabaseReference reference;
     private Button mFirebaseBtn;
-    private Button deNeve;
-    private Button bplate;
-    private Button covel;
-    private Button feast;
+    private ImageButton deNeve;
+    private ImageButton bplate;
+    private ImageButton covel;
+    private ImageButton feast;
     private DatabaseReference mDatabase;
     private static String diningHall;
     private Button mSellerBtn;
@@ -59,10 +60,10 @@ public class DiningSelect extends AppCompatActivity {
 
         mFirebaseBtn = (Button) findViewById(R.id.buyer_btn);
         mSellerBtn = (Button) findViewById(R.id.seller_btn);
-        bplate = (Button) findViewById(R.id.bplate_btn);
-        covel = (Button) findViewById(R.id.covel_btn);
-        deNeve = (Button) findViewById(R.id.deNeve_btn);
-        feast = (Button) findViewById(R.id.feast_btn);
+        bplate = (ImageButton) findViewById(R.id.bplate_btn);
+        covel = (ImageButton) findViewById(R.id.covel_btn);
+        deNeve = (ImageButton) findViewById(R.id.deNeve_btn);
+        feast = (ImageButton) findViewById(R.id.feast_btn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -90,10 +91,10 @@ public class DiningSelect extends AppCompatActivity {
                 map.put("Buyer_name", name);
                 map.put("Seller_name", "");
                 map.put("Created_at", strDt);
-
+                map.put("RID","");
                 reference = mDatabase.push();
                 reference.setValue(map);
-
+                reference.child("RID").setValue(push_reference().toString());
                 startActivity(new Intent(DiningSelect.this, BuyerPrice.class));
                 Toast.makeText(DiningSelect.this, "Buyer Price.", Toast.LENGTH_LONG).show();
             }

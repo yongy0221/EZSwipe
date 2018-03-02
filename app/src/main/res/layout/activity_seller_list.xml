@@ -13,4 +13,11 @@
         android:text="Dining Hall"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="118dp" />
+
+    <!--<ListView-->
+        <!--android:id="@+id/list_view"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="1100px"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="16dp"></ListView>-->
 </android.support.constraint.ConstraintLayout>

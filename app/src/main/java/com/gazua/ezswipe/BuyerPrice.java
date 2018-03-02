@@ -25,23 +25,25 @@ import com.google.firebase.auth.FirebaseAuth;
 public class BuyerPrice extends AppCompatActivity {
 
     EditText priceInput;
-    EditText numberInput;
+    Spinner numberInput;
 
     String numPerson;
     String price;
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_price);
 
-        final Button button = findViewById(R.id.submitButton);
+        final Button button = findViewById(R.id.buyer_btn);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                priceInput = (EditText) findViewById(R.id.priceText);
-                numberInput = (EditText) findViewById(R.id.personText);
+                priceInput = (EditText) findViewById(R.id.price);
+                numberInput = (Spinner) findViewById(R.id.spinner_num);
 
-                numPerson = numberInput.getText().toString();
+//                numPerson = numberInput.get().toString();
                 price = priceInput.getText().toString();
                 mDatabase = FirebaseDatabase.getInstance().getReference();
                 DiningSelect.push_reference().child("Price").setValue(price);
