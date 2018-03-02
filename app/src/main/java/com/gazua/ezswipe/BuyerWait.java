@@ -56,13 +56,13 @@ public class BuyerWait extends AppCompatActivity {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();  // Buyer_ID, Status
 
                 for (DataSnapshot child: children) {
-                    String buyerID = (String) child.child("Buyer_ID").getValue();
+                    String RID = (String) child.child("RID").getValue();
                     String status = (String) child.child("Status").getValue();
 
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user != null) {
-                        String uid = user.getUid();
-                        if (Objects.equals(buyerID, uid) && Objects.equals(status, "1")) {
+                        String rid = DiningSelect.push_reference().toString();
+                        if (Objects.equals(RID, rid) && Objects.equals(status, "1")) {
 
                             new Notify().execute();
 
