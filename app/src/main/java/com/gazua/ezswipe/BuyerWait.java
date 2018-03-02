@@ -8,6 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONObject;
@@ -15,6 +22,9 @@ import org.json.JSONObject;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class BuyerWait extends AppCompatActivity {
 
@@ -28,13 +38,42 @@ public class BuyerWait extends AppCompatActivity {
 
         tkn = FirebaseInstanceId.getInstance().getToken();
 
-        notify = findViewById(R.id.notify);
+        /* notify = findViewById(R.id.notify);
 
         notify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 new Notify().execute();
+            }
+        }); */
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> children = dataSnapshot.getChildren();  // Buyer_ID, Status
+
+                for (DataSnapshot child: children) {
+                    String buyerID = (String) child.child("Buyer_ID").getValue();
+                    String status = (String) child.child("Status").getValue();
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        String uid = user.getUid();
+                        if (Objects.equals(buyerID, uid) && Objects.equals(status, "1")) {
+
+                            new Notify().execute();
+
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
     }
