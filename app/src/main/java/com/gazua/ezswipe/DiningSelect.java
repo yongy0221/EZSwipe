@@ -77,11 +77,8 @@ public class DiningSelect extends AppCompatActivity {
                 final Date currentTime = Calendar.getInstance().getTime();
 //                Boolean switchState = simpleSwitch.isChecked();
 //                Toast.makeText(DiningSelect.this, switchState.toString(), Toast.LENGTH_LONG).show();
-
                 SimpleDateFormat simpleDate = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-
                 String strDt = simpleDate.format(currentTime);
-
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("Location", diningHall);
                 map.put("Price", "");

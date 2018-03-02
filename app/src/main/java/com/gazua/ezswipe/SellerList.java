@@ -28,6 +28,7 @@ public class SellerList extends AppCompatActivity {
         setContentView(R.layout.activity_seller_list);
 
         final TextView textView = (TextView) findViewById(R.id.textView);
+
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 //        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 
@@ -51,6 +52,7 @@ public class SellerList extends AppCompatActivity {
                         map.put("Price", (String) child.child("Price").getValue());
                         map.put("Seller_name", (String) child.child("Seller_name").getValue());
                         map.put("Status", (String) child.child("Status").getValue());
+                        map.put("Buyer_ID", (String) child.child("Buyer_ID").getValue());
 
                         list.add(map);
                     }
@@ -61,7 +63,7 @@ public class SellerList extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(SellerList.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
 
