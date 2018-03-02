@@ -58,7 +58,7 @@ public class SellerList extends AppCompatActivity {
                 final String testrid = list.get(position).get("RID");
                 String name = list.get(position).get("Buyer_name");
                 String price = list.get(position).get("Price");
-                String num = list.get(position).get("Numbre");
+                String num = list.get(position).get("Number");
                 String body = "$" + price + ", " + num + " people";
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 final String seller = currentFirebaseUser.getDisplayName();
